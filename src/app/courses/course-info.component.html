@@ -1,0 +1,47 @@
+<h2 class="text-center">Course Info</h2>
+<hr/>
+<form #courseForm="ngForm">
+  <div class="form-group row m-0">
+    <label class="col-sm-1 col-form-label pl-0">Name:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="course.name" required name="name" #courseName="ngModel"
+      class="form-control col-sm-11" [ngClass]="{'is-invalid' : courseName.invalid}">
+      <div class="invalid-feedback">
+        <span>Course name is required</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row m-0 mt-2">
+    <label class="col-sm-1 col-form-label pl-0">Price:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="course.price" required name="price" type="number" #coursePrice="ngModel"
+             class="form-control col-sm-11" [ngClass]="{'is-invalid' : coursePrice.invalid}">
+      <div class="invalid-feedback">
+        <span>Course price is required</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row m-0 mt-2">
+    <label class="col-sm-1 col-form-label pl-0">Rating:</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="course.rating" required name="rating" type="number" #courseRating="ngModel"
+             class="form-control col-sm-11" [ngClass]="{'is-invalid' : courseRating.invalid}">
+      <div class="invalid-feedback">
+        <span>Course rating is required</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row m-0 mt-2">
+    <label class="col-sm-1 col-form-label pl-0">Description:</label>
+    <div class="col-sm-10">
+      <textarea [(ngModel)]="course.description" required name="description" #courseDescription="ngModel"
+      class="form-control col-sm-11" [ngClass]="{'is-invalid' : courseDescription.invalid}"></textarea>
+      <div class="invalid-feedback">
+        <span>Course description is required</span>
+      </div>
+    </div>
+  </div>
+
+  <button [disabled]="courseForm.invalid" (click)="save()" class="btn btn-primary mt-4 mr-2">Save</button>
+  <button [routerLink]="'/courses'" class="btn btn-secondary mt-4">Back</button>
+</form>
